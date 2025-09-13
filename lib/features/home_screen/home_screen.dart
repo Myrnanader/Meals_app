@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meals_app/core/app_assets/app_assets.dart';
 import 'package:meals_app/core/routing/app_routes.dart';
 import 'package:meals_app/core/styles/app_colors.dart';
 import 'package:meals_app/core/styles/app_text_styles.dart';
@@ -63,7 +60,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         } else if (snapshot.hasData) {
                           if (snapshot.data!.isEmpty) {
-                            return Center(child: Text("No Meals found",style:AppTextStyles.onBoardingTitleStyle));
+                            return Center(
+                              child: Text(
+                                "No Meals found",
+                                style: AppTextStyles.onBoardingTitleStyle,
+                              ),
+                            );
                           }
                           return GridView.builder(
                             itemCount: snapshot.data!.length,
@@ -78,7 +80,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 name: meal.name,
                                 rate: meal.rate,
                                 time: meal.time,
-                                onTap: () {},
+                                onTap: () {
+                                  GoRouter.of(context).pushNamed(
+                                    AppRoutes.mealDetailsScreen,
+                                    extra: meal,
+                                  );
+                                },
                               );
                             },
                           );

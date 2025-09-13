@@ -10,6 +10,8 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final int? maxLines;
 
   const CustomTextField({
     super.key,
@@ -20,14 +22,18 @@ class CustomTextField extends StatelessWidget {
     this.isPassword,
     this.controller,
     this.validator,
+    this.keyboardType,
+    this.maxLines
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? 331.w,
-      height: height?? 52.h,
+      height: height ?? 52.h,
       child: TextFormField(
+        maxLines: maxLines ?? 1,
+        keyboardType: keyboardType ?? TextInputType.text,
         controller: controller,
         validator: validator,
         autofocus: false,
