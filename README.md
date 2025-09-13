@@ -1,6 +1,9 @@
 # meals_app
 
-A new Flutter project.
+Meals App — a simple local storage-based app to explore delicious meals and save your favorites.
+It starts with a one-time onboarding screen, then takes you to the home page where you can add your own meals—name, image, and description—all saved locally using (sharedPreferences , sqflite).
+
+
 
 ## Getting Started
 
